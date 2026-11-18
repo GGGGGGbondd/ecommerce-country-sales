@@ -1,0 +1,7 @@
+﻿Category,Rows
+Input,541909
+Exact duplicates removed,5268
+Excluded: nonpositive_unit_price,2512
+Excluded: unrecognized_invoice_format,1
+Valid positive sales,524877
+Valid returns/cancellations,9251

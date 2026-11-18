@@ -1,0 +1,25 @@
+{
+  "independent_csv_partition_check": "PASS",
+  "all_exported_sales_values_decimal_check": "PASS",
+  "all_exported_dates_parse_check": "PASS",
+  "source_sample_value_check": "PASS",
+  "source_sha256_check": "PASS",
+  "sample_source_records": [
+    2,
+    3,
+    4,
+    100000,
+    200000,
+    400000
+  ],
+  "counts": {
+    "08ecomm_cleaned.csv": 524877,
+    "08ecomm_returns.csv": 9251,
+    "08ecomm_excluded.csv": 2513,
+    "08ecomm_duplicates.csv": 5268
+  },
+  "exact_decimal_totals": {
+    "08ecomm_cleaned.csv": "10631048.744",
+    "08ecomm_returns.csv": "-893979.73"
+  }
+}

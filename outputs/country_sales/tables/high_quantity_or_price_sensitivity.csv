@@ -1,0 +1,5 @@
+﻿Dataset,Scenario,Rows,TotalSales,HighQuantityOrPriceRows,HighQuantityOrPriceSales,HighQuantityOrPriceShareOfAllSales,TopLabel,TopLabelSalesShare,Top5SalesShare,LabelsFor80Percent
+Dataset A (08ecomm),All retained sales lines,524877,10631048.743999999,9918,2520542.21,0.23709252687064908,United Kingdom,0.8457003867162403,0.9404126445796307,1
+Dataset A (08ecomm),Excluding HighQuantityOrPrice lines,514959,8110506.534,0,0.0,0.0,United Kingdom,0.8530905332478216,0.9437280830627837,1
+Dataset B (Global Superstore),All retained sales lines,51290,12642501.909880001,954,1510273.54846,0.11946002138071538,United States,0.1817046085241054,0.4279825220015615,25
+Dataset B (Global Superstore),Excluding HighQuantityOrPrice lines,50336,11132228.36142,0,0.0,0.0,United States,0.16645251440598705,0.4224101165276651,24

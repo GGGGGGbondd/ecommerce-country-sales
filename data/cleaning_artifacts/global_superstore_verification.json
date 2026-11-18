@@ -1,0 +1,31 @@
+{
+  "source_sha256_unchanged": "PASS",
+  "all_original_order_fields_verified": "PASS",
+  "all_original_measure_totals_preserved": "PASS",
+  "all_order_rows_present_once": "PASS",
+  "all_analysis_flags_independently_verified": "PASS",
+  "return_keys_verified": "PASS",
+  "ecomm_header_prefix_and_40_unique_columns": "PASS",
+  "verified_order_rows": 51290,
+  "verified_original_columns": 24,
+  "exact_decimal_export_totals": {
+    "Sales": "12642501.90988000002174815",
+    "Profit": "1467457.2912799999311949806",
+    "Quantity": "178312",
+    "Shipping Cost": "1352815.703400000000102607"
+  },
+  "flag_counts": {
+    "ReturnRecordMatched": 3043,
+    "OrderKeyReused": 2554,
+    "ReturnMatchAmbiguous": 108,
+    "PostalCodeMissing": 41296,
+    "NegativeProfit": 12544,
+    "RegionOwnerMissing": 5029,
+    "ProductIDNameConflict": 4392,
+    "HighQuantityOrPrice": 954,
+    "CustomerIDMissing": 0,
+    "DescriptionMissing": 0,
+    "CountryUnspecified": 0,
+    "IsServiceOrAdjustment": 0
+  }
+}

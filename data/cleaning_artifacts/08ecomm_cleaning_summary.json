@@ -1,0 +1,68 @@
+{
+  "source_file": "08ecomm.csv",
+  "source_sha256": "fbe603d76116b3cde5a178bb62fd6417ee5e7db62349c38d31b413cd1f5e4a8e",
+  "encoding": "utf-8-sig",
+  "date_format_in_source": "%m/%d/%Y %H:%M",
+  "input_rows": 541909,
+  "input_columns": 8,
+  "source_date_min": "2010-12-01 08:26:00",
+  "source_date_max": "2011-12-09 12:50:00",
+  "whitespace_cells_trimmed": 113452,
+  "missing_before": {
+    "InvoiceNo": 0,
+    "StockCode": 0,
+    "Description": 1454,
+    "Quantity": 0,
+    "InvoiceDate": 0,
+    "UnitPrice": 0,
+    "CustomerID": 135080,
+    "Country": 0
+  },
+  "exact_duplicates_removed": 5268,
+  "excluded_rows": 2513,
+  "exclusion_reasons_mutually_exclusive": {
+    "nonpositive_unit_price": 2512,
+    "unrecognized_invoice_format": 1
+  },
+  "quality_flags_after_dedup_overlap_allowed": {
+    "missing_invoice_or_stock_or_country": 0,
+    "invalid_invoice_date": 0,
+    "invalid_or_noninteger_quantity": 0,
+    "invalid_unit_price": 0,
+    "invalid_customer_id": 0,
+    "nonpositive_unit_price": 2512,
+    "zero_quantity": 0,
+    "cancelled_invoice_with_positive_quantity": 0,
+    "negative_quantity_without_cancelled_invoice": 1336,
+    "unrecognized_invoice_format": 3
+  },
+  "sales_rows": 524877,
+  "return_rows": 9251,
+  "sales_missing_customer_id": 132185,
+  "sales_with_customer_id": 392692,
+  "distinct_identified_sales_customers": 4338,
+  "sales_countries_including_unspecified": 38,
+  "sales_missing_description": 0,
+  "sales_service_or_adjustment_rows": 2306,
+  "gross_positive_line_amount": 10631048.744,
+  "signed_return_line_amount": -893979.73,
+  "signed_combined_line_amount": 9737069.014,
+  "outlier_flag_thresholds": {
+    "quantity_sales_p99": 100.0,
+    "unit_price_sales_p99": 16.98
+  },
+  "sales_outlier_flagged_not_removed": 9918,
+  "row_partition_check": "PASS",
+  "input_unchanged_sha256_check": "PASS",
+  "notes": [
+    "Exact duplicate removal assumes identical full rows are repeated records; no line ID is supplied.",
+    "Gross sales exclude returns. Concatenate sales and returns for signed net transaction amounts.",
+    "Signed net transaction amounts are not accounting profit and exclude invalid/free/adjustment rows.",
+    "Customer counts use distinct nonmissing CustomerID; unidentified sales remain in sales totals.",
+    "Country labels are preserved; Unspecified is an unknown category, not a real country.",
+    "Service/adjustment flags identify known codes only; validate other unusual codes before product ranking.",
+    "Some extreme sales have offsetting cancellations; review net quantities before product ranking.",
+    "No currency column is present; amounts use original price units without currency conversion.",
+    "Dates are timezone-naive; no timezone was inferred. December 2011 is only partially covered."
+  ]
+}

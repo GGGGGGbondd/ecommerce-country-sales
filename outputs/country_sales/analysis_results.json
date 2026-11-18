@@ -1,0 +1,757 @@
+{
+  "overview": [
+    {
+      "Dataset": "Dataset A (08ecomm)",
+      "Valid sales rows": 524877,
+      "Country/market labels": 38,
+      "Total sales": 10631048.743999999,
+      "Date start": "2010-12-01",
+      "Date end": "2011-12-09",
+      "Top label": "United Kingdom",
+      "Top-label share": 0.8457003867162403,
+      "Special-label sales": 26481.729999999996
+    },
+    {
+      "Dataset": "Dataset B (Global Superstore)",
+      "Valid sales rows": 51290,
+      "Country/market labels": 147,
+      "Total sales": 12642501.909880001,
+      "Date start": "2011-01-01",
+      "Date end": "2014-12-31",
+      "Top label": "United States",
+      "Top-label share": 0.1817046085241054,
+      "Special-label sales": 0.0
+    }
+  ],
+  "validation": {
+    "internal_validation": [
+      {
+        "dataset": "Dataset A (08ecomm)",
+        "rows": 524877,
+        "valid_sales_numeric": true,
+        "missing_country_count": 0,
+        "blank_country_count": 0,
+        "negative_sales_count": 0,
+        "non_finite_sales_count": 0,
+        "invalid_date_count": 0,
+        "row_level_sales_total": 10631048.743999999,
+        "grouped_sales_total": 10631048.743999999,
+        "grouped_total_matches_row_total": true,
+        "sales_share_sum": 1.0000000000000002,
+        "sales_share_sum_is_one": true,
+        "groupby_matches_pivot_table": true,
+        "special_label_count": 3,
+        "comparable_country_count": 35,
+        "all_internal_checks_pass": true
+      },
+      {
+        "dataset": "Dataset B (Global Superstore)",
+        "rows": 51290,
+        "valid_sales_numeric": true,
+        "missing_country_count": 0,
+        "blank_country_count": 0,
+        "negative_sales_count": 0,
+        "non_finite_sales_count": 0,
+        "invalid_date_count": 0,
+        "row_level_sales_total": 12642501.909880001,
+        "grouped_sales_total": 12642501.90988,
+        "grouped_total_matches_row_total": true,
+        "sales_share_sum": 1.0000000000000002,
+        "sales_share_sum_is_one": true,
+        "groupby_matches_pivot_table": true,
+        "special_label_count": 0,
+        "comparable_country_count": 147,
+        "all_internal_checks_pass": true
+      }
+    ],
+    "source_reconciliation": [
+      {
+        "source": "08ecomm_cleaning_complete.zip / cleaning_summary.json",
+        "source_reconciliation_available": true,
+        "manifest_sales_rows": 524877,
+        "manifest_sales_countries": 38,
+        "manifest_gross_positive_line_amount": 10631048.744,
+        "manifest_input_rows": 541909,
+        "manifest_duplicates_removed": 5268,
+        "manifest_excluded_rows": 2513,
+        "manifest_return_rows": 9251,
+        "audit_sales_rows": 524877,
+        "audit_return_rows": 9251,
+        "cleaned_rows": 524877,
+        "cleaned_country_labels": 38,
+        "source_sales_total": 10631048.744,
+        "cleaned_sales_total": 10631048.743999999,
+        "rows_match": true,
+        "sales_match": true,
+        "country_labels_match": true,
+        "country_level_rows_match": true,
+        "country_level_max_abs_difference": 0.0,
+        "country_level_sales_match": true,
+        "cleaned_input_sha256": "b951d0ff8841b5165f13051664ffdf7de704793517292dbce37b2f61059f09ae",
+        "artifact_checks_pass": true,
+        "artifact_flag_details": {
+          "row_partition_check": "PASS",
+          "input_unchanged_sha256_check": "PASS",
+          "independent_csv_partition_check": "PASS",
+          "all_exported_sales_values_decimal_check": "PASS",
+          "all_exported_dates_parse_check": "PASS",
+          "source_sample_value_check": "PASS"
+        }
+      },
+      {
+        "source": "Global Superstore cleaning artifacts",
+        "source_reconciliation_available": true,
+        "manifest_orders_input_rows": 51290,
+        "manifest_orders_output_rows": 51290,
+        "manifest_countries": 147,
+        "manifest_sales_total": 12642501.909880001,
+        "audit_orders_output_rows": 51290,
+        "verification_all_original_order_fields": "PASS",
+        "verification_all_original_measure_totals": "PASS",
+        "cleaned_rows": 51290,
+        "source_sales_total": 12642501.909880001,
+        "cleaned_sales_total": 12642501.909880001,
+        "rows_match": true,
+        "sales_match": true,
+        "country_labels_match": true,
+        "country_level_rows_match": true,
+        "country_level_max_abs_difference": 0.0,
+        "country_level_sales_match": true,
+        "artifact_checks_pass": true,
+        "artifact_flag_details": {
+          "row_coverage_and_no_join_expansion": "PASS",
+          "original_sales_quantity_profit_shipping_preserved": "PASS",
+          "all_original_order_fields_verified": "PASS",
+          "all_original_measure_totals_preserved": "PASS"
+        }
+      }
+    ],
+    "all_internal_checks_pass": true,
+    "all_source_reconciliations_match": true
+  },
+  "top15": {
+    "dataset_a": [
+      {
+        "Country": "United Kingdom",
+        "Country_Comparable": "United Kingdom",
+        "IsSpecialLabel": false,
+        "TotalSales": 8990682.034,
+        "Rank": 1,
+        "SalesShareAll": 0.8457003867162403,
+        "CumulativeSalesShareAll": 0.8457003867162403
+      },
+      {
+        "Country": "Netherlands",
+        "Country_Comparable": "Netherlands",
+        "IsSpecialLabel": false,
+        "TotalSales": 285446.34,
+        "Rank": 2,
+        "SalesShareAll": 0.026850252206876726,
+        "CumulativeSalesShareAll": 0.872550638923117
+      },
+      {
+        "Country": "EIRE",
+        "Country_Comparable": "Ireland",
+        "IsSpecialLabel": false,
+        "TotalSales": 283140.52,
+        "Rank": 3,
+        "SalesShareAll": 0.026633357330790173,
+        "CumulativeSalesShareAll": 0.8991839962539072
+      },
+      {
+        "Country": "Germany",
+        "Country_Comparable": "Germany",
+        "IsSpecialLabel": false,
+        "TotalSales": 228678.4,
+        "Rank": 4,
+        "SalesShareAll": 0.021510427193654116,
+        "CumulativeSalesShareAll": 0.9206944234475614
+      },
+      {
+        "Country": "France",
+        "Country_Comparable": "France",
+        "IsSpecialLabel": false,
+        "TotalSales": 209625.37,
+        "Rank": 5,
+        "SalesShareAll": 0.01971822113206934,
+        "CumulativeSalesShareAll": 0.9404126445796307
+      },
+      {
+        "Country": "Australia",
+        "Country_Comparable": "Australia",
+        "IsSpecialLabel": false,
+        "TotalSales": 138453.81,
+        "Rank": 6,
+        "SalesShareAll": 0.013023532610377805,
+        "CumulativeSalesShareAll": 0.9534361771900085
+      },
+      {
+        "Country": "Spain",
+        "Country_Comparable": "Spain",
+        "IsSpecialLabel": false,
+        "TotalSales": 61558.56,
+        "Rank": 7,
+        "SalesShareAll": 0.005790450357472277,
+        "CumulativeSalesShareAll": 0.9592266275474808
+      },
+      {
+        "Country": "Switzerland",
+        "Country_Comparable": "Switzerland",
+        "IsSpecialLabel": false,
+        "TotalSales": 57067.6,
+        "Rank": 8,
+        "SalesShareAll": 0.005368012260522094,
+        "CumulativeSalesShareAll": 0.9645946398080029
+      },
+      {
+        "Country": "Belgium",
+        "Country_Comparable": "Belgium",
+        "IsSpecialLabel": false,
+        "TotalSales": 41196.34,
+        "Rank": 9,
+        "SalesShareAll": 0.0038750965207689954,
+        "CumulativeSalesShareAll": 0.9684697363287719
+      },
+      {
+        "Country": "Sweden",
+        "Country_Comparable": "Sweden",
+        "IsSpecialLabel": false,
+        "TotalSales": 38367.83,
+        "Rank": 10,
+        "SalesShareAll": 0.003609035281834656,
+        "CumulativeSalesShareAll": 0.9720787716106065
+      },
+      {
+        "Country": "Japan",
+        "Country_Comparable": "Japan",
+        "IsSpecialLabel": false,
+        "TotalSales": 37416.37,
+        "Rank": 11,
+        "SalesShareAll": 0.003519537056126963,
+        "CumulativeSalesShareAll": 0.9755983086667335
+      },
+      {
+        "Country": "Norway",
+        "Country_Comparable": "Norway",
+        "IsSpecialLabel": false,
+        "TotalSales": 36165.44,
+        "Rank": 12,
+        "SalesShareAll": 0.0034018694552982107,
+        "CumulativeSalesShareAll": 0.9790001781220317
+      },
+      {
+        "Country": "Portugal",
+        "Country_Comparable": "Portugal",
+        "IsSpecialLabel": false,
+        "TotalSales": 33683.05,
+        "Rank": 13,
+        "SalesShareAll": 0.0031683656816088065,
+        "CumulativeSalesShareAll": 0.9821685438036405
+      },
+      {
+        "Country": "Finland",
+        "Country_Comparable": "Finland",
+        "IsSpecialLabel": false,
+        "TotalSales": 22546.08,
+        "Rank": 14,
+        "SalesShareAll": 0.002120776655522783,
+        "CumulativeSalesShareAll": 0.9842893204591633
+      },
+      {
+        "Country": "Singapore",
+        "Country_Comparable": "Singapore",
+        "IsSpecialLabel": false,
+        "TotalSales": 21279.29,
+        "Rank": 15,
+        "SalesShareAll": 0.0020016171981160095,
+        "CumulativeSalesShareAll": 0.9862909376572793
+      }
+    ],
+    "dataset_b": [
+      {
+        "Country": "United States",
+        "Country_Comparable": "United States",
+        "IsSpecialLabel": false,
+        "TotalSales": 2297200.8603,
+        "Rank": 1,
+        "SalesShareAll": 0.1817046085241054,
+        "CumulativeSalesShareAll": 0.1817046085241054
+      },
+      {
+        "Country": "Australia",
+        "Country_Comparable": "Australia",
+        "IsSpecialLabel": false,
+        "TotalSales": 925235.853,
+        "Rank": 2,
+        "SalesShareAll": 0.07318455315216814,
+        "CumulativeSalesShareAll": 0.2548891616762735
+      },
+      {
+        "Country": "France",
+        "Country_Comparable": "France",
+        "IsSpecialLabel": false,
+        "TotalSales": 858931.083,
+        "Rank": 3,
+        "SalesShareAll": 0.0679399607073623,
+        "CumulativeSalesShareAll": 0.3228291223836358
+      },
+      {
+        "Country": "China",
+        "Country_Comparable": "China",
+        "IsSpecialLabel": false,
+        "TotalSales": 700562.025,
+        "Rank": 4,
+        "SalesShareAll": 0.05541324256811203,
+        "CumulativeSalesShareAll": 0.37824236495174784
+      },
+      {
+        "Country": "Germany",
+        "Country_Comparable": "Germany",
+        "IsSpecialLabel": false,
+        "TotalSales": 628840.0305,
+        "Rank": 5,
+        "SalesShareAll": 0.04974015704981363,
+        "CumulativeSalesShareAll": 0.4279825220015615
+      },
+      {
+        "Country": "Mexico",
+        "Country_Comparable": "Mexico",
+        "IsSpecialLabel": false,
+        "TotalSales": 622590.61752,
+        "Rank": 6,
+        "SalesShareAll": 0.04924583930918382,
+        "CumulativeSalesShareAll": 0.4772283613107453
+      },
+      {
+        "Country": "India",
+        "Country_Comparable": "India",
+        "IsSpecialLabel": false,
+        "TotalSales": 589650.105,
+        "Rank": 7,
+        "SalesShareAll": 0.046640301832914406,
+        "CumulativeSalesShareAll": 0.5238686631436598
+      },
+      {
+        "Country": "United Kingdom",
+        "Country_Comparable": "United Kingdom",
+        "IsSpecialLabel": false,
+        "TotalSales": 528576.3,
+        "Rank": 8,
+        "SalesShareAll": 0.04180946965781532,
+        "CumulativeSalesShareAll": 0.565678132801475
+      },
+      {
+        "Country": "Indonesia",
+        "Country_Comparable": "Indonesia",
+        "IsSpecialLabel": false,
+        "TotalSales": 404887.49789999996,
+        "Rank": 9,
+        "SalesShareAll": 0.03202589968237095,
+        "CumulativeSalesShareAll": 0.597704032483846
+      },
+      {
+        "Country": "Brazil",
+        "Country_Comparable": "Brazil",
+        "IsSpecialLabel": false,
+        "TotalSales": 361106.41896,
+        "Rank": 10,
+        "SalesShareAll": 0.028562892181791852,
+        "CumulativeSalesShareAll": 0.6262669246656378
+      },
+      {
+        "Country": "Italy",
+        "Country_Comparable": "Italy",
+        "IsSpecialLabel": false,
+        "TotalSales": 289709.658,
+        "Rank": 11,
+        "SalesShareAll": 0.022915532073093426,
+        "CumulativeSalesShareAll": 0.6491824567387312
+      },
+      {
+        "Country": "Spain",
+        "Country_Comparable": "Spain",
+        "IsSpecialLabel": false,
+        "TotalSales": 287146.68,
+        "Rank": 12,
+        "SalesShareAll": 0.022712804953234574,
+        "CumulativeSalesShareAll": 0.6718952616919658
+      },
+      {
+        "Country": "Philippines",
+        "Country_Comparable": "Philippines",
+        "IsSpecialLabel": false,
+        "TotalSales": 183420.165,
+        "Rank": 13,
+        "SalesShareAll": 0.01450821730599533,
+        "CumulativeSalesShareAll": 0.6864034789979612
+      },
+      {
+        "Country": "El Salvador",
+        "Country_Comparable": "El Salvador",
+        "IsSpecialLabel": false,
+        "TotalSales": 177554.9032,
+        "Rank": 14,
+        "SalesShareAll": 0.014044285258224282,
+        "CumulativeSalesShareAll": 0.7004477642561855
+      },
+      {
+        "Country": "New Zealand",
+        "Country_Comparable": "New Zealand",
+        "IsSpecialLabel": false,
+        "TotalSales": 172020.624,
+        "Rank": 15,
+        "SalesShareAll": 0.013606533360739892,
+        "CumulativeSalesShareAll": 0.7140542976169254
+      }
+    ]
+  },
+  "comparison_top12": [
+    {
+      "Country": "United Kingdom",
+      "ComparableSales_A": 8990682.034,
+      "ComparableSalesShare_A": 0.8478122701408389,
+      "ComparableSales_B": 528576.3,
+      "ComparableSalesShare_B": 0.04180946965781532,
+      "UnionSelectionScore": 0.8896217397986542
+    },
+    {
+      "Country": "United States",
+      "ComparableSales_A": 3580.39,
+      "ComparableSalesShare_A": 0.000337627174713802,
+      "ComparableSales_B": 2297200.8603,
+      "ComparableSalesShare_B": 0.1817046085241054,
+      "UnionSelectionScore": 0.1820422356988192
+    },
+    {
+      "Country": "France",
+      "ComparableSales_A": 209625.37,
+      "ComparableSalesShare_A": 0.01976746148364714,
+      "ComparableSales_B": 858931.083,
+      "ComparableSalesShare_B": 0.0679399607073623,
+      "UnionSelectionScore": 0.08770742219100944
+    },
+    {
+      "Country": "Australia",
+      "ComparableSales_A": 138453.81,
+      "ComparableSalesShare_A": 0.013056054982463235,
+      "ComparableSales_B": 925235.853,
+      "ComparableSalesShare_B": 0.07318455315216814,
+      "UnionSelectionScore": 0.08624060813463137
+    },
+    {
+      "Country": "Germany",
+      "ComparableSales_A": 228678.4,
+      "ComparableSalesShare_A": 0.021564143043096614,
+      "ComparableSales_B": 628840.0305,
+      "ComparableSalesShare_B": 0.04974015704981363,
+      "UnionSelectionScore": 0.07130430009291025
+    },
+    {
+      "Country": "China",
+      "ComparableSales_A": NaN,
+      "ComparableSalesShare_A": NaN,
+      "ComparableSales_B": 700562.025,
+      "ComparableSalesShare_B": 0.05541324256811203,
+      "UnionSelectionScore": 0.05541324256811203
+    },
+    {
+      "Country": "Mexico",
+      "ComparableSales_A": NaN,
+      "ComparableSalesShare_A": NaN,
+      "ComparableSales_B": 622590.61752,
+      "ComparableSalesShare_B": 0.04924583930918382,
+      "UnionSelectionScore": 0.04924583930918382
+    },
+    {
+      "Country": "India",
+      "ComparableSales_A": NaN,
+      "ComparableSalesShare_A": NaN,
+      "ComparableSales_B": 589650.105,
+      "ComparableSalesShare_B": 0.046640301832914406,
+      "UnionSelectionScore": 0.046640301832914406
+    },
+    {
+      "Country": "Netherlands",
+      "ComparableSales_A": 285446.34,
+      "ComparableSalesShare_A": 0.02691730266998716,
+      "ComparableSales_B": 77514.945,
+      "ComparableSalesShare_B": 0.006131297867506968,
+      "UnionSelectionScore": 0.03304860053749413
+    },
+    {
+      "Country": "Indonesia",
+      "ComparableSales_A": NaN,
+      "ComparableSalesShare_A": NaN,
+      "ComparableSales_B": 404887.49789999996,
+      "ComparableSalesShare_B": 0.03202589968237095,
+      "UnionSelectionScore": 0.03202589968237095
+    },
+    {
+      "Country": "Brazil",
+      "ComparableSales_A": 1143.6,
+      "ComparableSalesShare_A": 0.00010784032940621103,
+      "ComparableSales_B": 361106.41896,
+      "ComparableSalesShare_B": 0.028562892181791852,
+      "UnionSelectionScore": 0.028670732511198064
+    },
+    {
+      "Country": "Spain",
+      "ComparableSales_A": 61558.56,
+      "ComparableSalesShare_A": 0.005804910272973073,
+      "ComparableSales_B": 287146.68,
+      "ComparableSalesShare_B": 0.022712804953234574,
+      "UnionSelectionScore": 0.02851771522620765
+    }
+  ],
+  "matched_country_comparison": [
+    {
+      "Country": "United Kingdom",
+      "MatchedSalesShare_A": 0.8498397042317722,
+      "MatchedSalesShare_B": 0.07541938608718501,
+      "MatchedSelectionScore": 0.9252590903189573
+    },
+    {
+      "Country": "United States",
+      "MatchedSalesShare_A": 0.00033843456671336166,
+      "MatchedSalesShare_B": 0.3277738305761708,
+      "MatchedSelectionScore": 0.32811226514288416
+    },
+    {
+      "Country": "Australia",
+      "MatchedSalesShare_A": 0.013087276860108564,
+      "MatchedSalesShare_B": 0.1320163617232043,
+      "MatchedSelectionScore": 0.14510363858331288
+    },
+    {
+      "Country": "France",
+      "MatchedSalesShare_A": 0.019814732827451234,
+      "MatchedSalesShare_B": 0.12255573125594346,
+      "MatchedSelectionScore": 0.1423704640833947
+    },
+    {
+      "Country": "Germany",
+      "MatchedSalesShare_A": 0.02161571091995699,
+      "MatchedSalesShare_B": 0.08972541721480266,
+      "MatchedSelectionScore": 0.11134112813475966
+    },
+    {
+      "Country": "Brazil",
+      "MatchedSalesShare_A": 0.00010809821569532939,
+      "MatchedSalesShare_B": 0.051524111902302515,
+      "MatchedSelectionScore": 0.051632210117997845
+    },
+    {
+      "Country": "Spain",
+      "MatchedSalesShare_A": 0.005818791969896708,
+      "MatchedSalesShare_B": 0.04097123976722635,
+      "MatchedSelectionScore": 0.04679003173712306
+    },
+    {
+      "Country": "Italy",
+      "MatchedSalesShare_A": 0.0016525944810888518,
+      "MatchedSalesShare_B": 0.041336935745867394,
+      "MatchedSelectionScore": 0.042989530226956243
+    },
+    {
+      "Country": "Netherlands",
+      "MatchedSalesShare_A": 0.02698167194015594,
+      "MatchedSalesShare_B": 0.01106014318932179,
+      "MatchedSelectionScore": 0.038041815129477734
+    },
+    {
+      "Country": "Ireland",
+      "MatchedSalesShare_A": 0.02676371546261606,
+      "MatchedSalesShare_B": 0.002374191868935837,
+      "MatchedSelectionScore": 0.029137907331551898
+    },
+    {
+      "Country": "Japan",
+      "MatchedSalesShare_A": 0.0035367635841170447,
+      "MatchedSalesShare_B": 0.014380767085833631,
+      "MatchedSelectionScore": 0.017917530669950676
+    },
+    {
+      "Country": "Austria",
+      "MatchedSalesShare_A": 0.0009640251053232267,
+      "MatchedSalesShare_B": 0.013203842737730235,
+      "MatchedSelectionScore": 0.014167867843053461
+    },
+    {
+      "Country": "South Africa",
+      "MatchedSalesShare_A": 9.474284939977755e-05,
+      "MatchedSalesShare_B": 0.013596683207806097,
+      "MatchedSelectionScore": 0.013691426057205875
+    },
+    {
+      "Country": "Saudi Arabia",
+      "MatchedSalesShare_A": 1.3793014720411388e-05,
+      "MatchedSalesShare_B": 0.011701829566818327,
+      "MatchedSelectionScore": 0.01171562258153874
+    },
+    {
+      "Country": "Belgium",
+      "MatchedSalesShare_A": 0.003894063350103293,
+      "MatchedSalesShare_B": 0.007023862956205244,
+      "MatchedSelectionScore": 0.010917926306308537
+    },
+    {
+      "Country": "Canada",
+      "MatchedSalesShare_A": 0.00034656272828002956,
+      "MatchedSalesShare_B": 0.009549579679109247,
+      "MatchedSelectionScore": 0.009896142407389277
+    },
+    {
+      "Country": "Switzerland",
+      "MatchedSalesShare_A": 0.0053942862312126435,
+      "MatchedSalesShare_B": 0.0035496728255938388,
+      "MatchedSelectionScore": 0.008943959056806483
+    },
+    {
+      "Country": "Sweden",
+      "MatchedSalesShare_A": 0.003626699862803192,
+      "MatchedSalesShare_B": 0.004350635651271068,
+      "MatchedSelectionScore": 0.00797733551407426
+    },
+    {
+      "Country": "Singapore",
+      "MatchedSalesShare_A": 0.0020114142009998825,
+      "MatchedSalesShare_B": 0.0057482036987940195,
+      "MatchedSelectionScore": 0.0077596178997939025
+    },
+    {
+      "Country": "Poland",
+      "MatchedSalesShare_A": 0.0006933041078609197,
+      "MatchedSalesShare_B": 0.006310749676711182,
+      "MatchedSelectionScore": 0.007004053784572101
+    },
+    {
+      "Country": "Norway",
+      "MatchedSalesShare_A": 0.0034185200540717852,
+      "MatchedSalesShare_B": 0.002928642098808298,
+      "MatchedSelectionScore": 0.0063471621528800835
+    },
+    {
+      "Country": "Portugal",
+      "MatchedSalesShare_A": 0.0031838733859536244,
+      "MatchedSalesShare_B": 0.0021552590934804682,
+      "MatchedSelectionScore": 0.005339132479434093
+    },
+    {
+      "Country": "Finland",
+      "MatchedSalesShare_A": 0.002131156889580406,
+      "MatchedSalesShare_B": 0.0029541796829222365,
+      "MatchedSelectionScore": 0.005085336572502642
+    },
+    {
+      "Country": "Israel",
+      "MatchedSalesShare_A": 0.0007684283977402656,
+      "MatchedSalesShare_B": 0.0027529567041069273,
+      "MatchedSelectionScore": 0.0035213851018471927
+    },
+    {
+      "Country": "Denmark",
+      "MatchedSalesShare_A": 0.0017917439943147123,
+      "MatchedSalesShare_B": 0.0012325120408322634,
+      "MatchedSelectionScore": 0.003024256035146976
+    },
+    {
+      "Country": "Hong Kong",
+      "MatchedSalesShare_A": 0.0014635227995897036,
+      "MatchedSalesShare_B": 0.0008770786096121341,
+      "MatchedSelectionScore": 0.0023406014092018377
+    },
+    {
+      "Country": "Czech Republic",
+      "MatchedSalesShare_A": 7.81471833193045e-05,
+      "MatchedSalesShare_B": 0.0013660467240806733,
+      "MatchedSelectionScore": 0.001444193907399978
+    },
+    {
+      "Country": "Lithuania",
+      "MatchedSalesShare_A": 0.00015701086233200755,
+      "MatchedSalesShare_B": 0.0009594546544868035,
+      "MatchedSelectionScore": 0.0011164655168188111
+    },
+    {
+      "Country": "Lebanon",
+      "MatchedSalesShare_A": 0.0001601131563501264,
+      "MatchedSalesShare_B": 0.00039903866347126577,
+      "MatchedSelectionScore": 0.0005591518198213921
+    },
+    {
+      "Country": "United Arab Emirates",
+      "MatchedSalesShare_A": 0.00017981206169369638,
+      "MatchedSalesShare_B": 0.00010617402553840592,
+      "MatchedSelectionScore": 0.0002859860872321023
+    },
+    {
+      "Country": "Bahrain",
+      "MatchedSalesShare_A": 7.128470477831034e-05,
+      "MatchedSalesShare_B": 9.548128582727313e-05,
+      "MatchedSelectionScore": 0.0001667659906055835
+    }
+  ],
+  "comparison_set_summary": {
+    "matched_country_count": 31,
+    "dataset_a_only_country_count": 4,
+    "dataset_b_only_country_count": 116,
+    "dataset_b_only_sales_share_all": 0.445640281273525,
+    "dataset_a_only_sales_share_all": 0.0023856664743219284,
+    "dataset_a_matched_denominator": 10579268.054000003,
+    "dataset_b_matched_denominator": 7008493.802760001
+  },
+  "high_quantity_or_price_sensitivity": [
+    {
+      "Dataset": "Dataset A (08ecomm)",
+      "Scenario": "All retained sales lines",
+      "Rows": 524877,
+      "TotalSales": 10631048.743999999,
+      "HighQuantityOrPriceRows": 9918,
+      "HighQuantityOrPriceSales": 2520542.21,
+      "HighQuantityOrPriceShareOfAllSales": 0.23709252687064908,
+      "TopLabel": "United Kingdom",
+      "TopLabelSalesShare": 0.8457003867162403,
+      "Top5SalesShare": 0.9404126445796307,
+      "LabelsFor80Percent": 1
+    },
+    {
+      "Dataset": "Dataset A (08ecomm)",
+      "Scenario": "Excluding HighQuantityOrPrice lines",
+      "Rows": 514959,
+      "TotalSales": 8110506.534,
+      "HighQuantityOrPriceRows": 0,
+      "HighQuantityOrPriceSales": 0.0,
+      "HighQuantityOrPriceShareOfAllSales": 0.0,
+      "TopLabel": "United Kingdom",
+      "TopLabelSalesShare": 0.8530905332478216,
+      "Top5SalesShare": 0.9437280830627837,
+      "LabelsFor80Percent": 1
+    },
+    {
+      "Dataset": "Dataset B (Global Superstore)",
+      "Scenario": "All retained sales lines",
+      "Rows": 51290,
+      "TotalSales": 12642501.909880001,
+      "HighQuantityOrPriceRows": 954,
+      "HighQuantityOrPriceSales": 1510273.54846,
+      "HighQuantityOrPriceShareOfAllSales": 0.11946002138071538,
+      "TopLabel": "United States",
+      "TopLabelSalesShare": 0.1817046085241054,
+      "Top5SalesShare": 0.4279825220015615,
+      "LabelsFor80Percent": 25
+    },
+    {
+      "Dataset": "Dataset B (Global Superstore)",
+      "Scenario": "Excluding HighQuantityOrPrice lines",
+      "Rows": 50336,
+      "TotalSales": 11132228.36142,
+      "HighQuantityOrPriceRows": 0,
+      "HighQuantityOrPriceSales": 0.0,
+      "HighQuantityOrPriceShareOfAllSales": 0.0,
+      "TopLabel": "United States",
+      "TopLabelSalesShare": 0.16645251440598705,
+      "Top5SalesShare": 0.4224101165276651,
+      "LabelsFor80Percent": 24
+    }
+  ]
+}
