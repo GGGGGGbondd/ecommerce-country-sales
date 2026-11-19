@@ -36,7 +36,11 @@ COUNTRY_MAPPING = {
     "USA": "United States",
     "RSA": "South Africa",
 }
-SPECIAL_LABELS = {"Unspecified", "European Community", "Channel Islands"}
+SPECIAL_LABELS = {
+    "Unspecified", 
+    "European Community", 
+    "Channel Islands"
+}
 COLORS = {
     "a": "#1f77b4",
     "b": "#d62728",
@@ -78,8 +82,8 @@ def configure_plot_style() -> None:
             "savefig.dpi": 300,
             "font.family": "DejaVu Sans",
             "font.size": 10,
-            "axes.titlesize": 13,
-            "axes.labelsize": 10,
+            "axes.titlesize": 14,
+            "axes.labelsize": 12,
             "axes.titleweight": "bold",
             "axes.spines.top": False,
             "axes.spines.right": False,
@@ -88,6 +92,9 @@ def configure_plot_style() -> None:
             "grid.alpha": 0.55,
             "grid.linestyle": "--",
             "legend.frameon": False,
+            "legend.fontsize": 10,
+            "xtick.labelsize": 11,
+            "ytick.labelsize": 11,
         }
     )
 
@@ -545,13 +552,13 @@ def annotate_bars(ax: Axes, bars: Any, percentages: bool = False) -> None:
             bar.get_y() + bar.get_height() / 2,
             " " + label,
             va="center",
-            fontsize=8,
+            fontsize=9,
         )
 
 
 def plot_top15(summaries: dict[str, pd.DataFrame]) -> None:
     """Plot the top fifteen labels for each dataset with independent scales."""
-    fig, axes = plt.subplots(1, 2, figsize=(15, 8), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(16, 8.5), constrained_layout=True)
     for ax, (key, summary), color in zip(
         axes, summaries.items(), [COLORS["a"], COLORS["b"]]
     ):
@@ -576,67 +583,33 @@ def plot_top15(summaries: dict[str, pd.DataFrame]) -> None:
 
 
 def plot_pareto(summaries: dict[str, pd.DataFrame]) -> None:
-    """Separate display bars from the cumulative curve on original ranks."""
+    """Plot the full ranked cumulative sales-share curves only.
+
+    The earlier Top-20-plus-Others bars repeated information already shown in
+    Figure 1 and reduced the space available for readable country labels.  The
+    cumulative curves use every original rank, so the 80% threshold remains
+    statistically exact rather than being recalculated on display groups.
+    """
     fig, axes = plt.subplots(
         len(summaries),
-        2,
-        figsize=(15, 11),
+        1,
+        figsize=(13, 9),
         constrained_layout=True,
-        gridspec_kw={"width_ratios": [1.05, 1.45]},
+        sharex=False,
     )
-    axes = np.atleast_2d(axes)
+    axes = np.atleast_1d(axes)
     for row, ((key, summary), color) in enumerate(
         zip(summaries.items(), [COLORS["a"], COLORS["b"]])
     ):
-        bar_ax, curve_ax = axes[row]
-        top20 = summary.head(20)
+        curve_ax = axes[row]
         full_rank = np.arange(1, len(summary) + 1)
-        bar_view = top20[["Country", "TotalSales"]].copy()
-        if len(summary) > 20:
-            bar_view = cast(
-                pd.DataFrame,
-                pd.concat(
-                    [
-                        bar_view,
-                        pd.DataFrame(
-                            [{
-                                "Country": "Others",
-                                "TotalSales": summary.iloc[20:]["TotalSales"].sum(),
-                            }]
-                        ),
-                    ],
-                    ignore_index=True,
-                ),
-            )
-        # Keep the synthetic Others group on the bottom of the displayed
-        # ranking so it cannot be mistaken for a leading geographic label.
-        others = bar_view.loc[bar_view["Country"] == "Others"]
-        ranked_labels = bar_view.loc[
-            ~(bar_view["Country"] == "Others")
-        ].sort_values("TotalSales")
-        bar_view = cast(
-            pd.DataFrame, pd.concat([others, ranked_labels], ignore_index=True)
-        )
-        bar_colors = [
-            COLORS["neutral"] if country == "Others" else color
-            for country in bar_view["Country"]
-        ]
-        bars = bar_ax.barh(
-            bar_view["Country"], bar_view["TotalSales"], color=bar_colors, alpha=0.68
-        )
-        annotate_bars(bar_ax, bars)
-        bar_ax.set_xlabel("Line sales (source data units)")
-        bar_ax.set_ylabel("Top 20 labels plus Others")
-        bar_ax.set_title(
-            "Dataset A (08ecomm)" if key == "dataset_a" else "Dataset B (Global Superstore)"
-        )
         curve_ax.plot(
             full_rank,
             summary["CumulativeSalesShareAll"] * 100,
             color=COLORS["accent"],
-            linewidth=2.2,
+            linewidth=2.8,
         )
-        curve_ax.axhline(80, color=COLORS["neutral"], linestyle=":", linewidth=1)
+        curve_ax.axhline(80, color=COLORS["neutral"], linestyle=":", linewidth=1.4)
         # argmax returns the first full-data rank whose cumulative share reaches 80%.
         full_idx80 = (
             int(np.argmax(summary["CumulativeSalesShareAll"].to_numpy() >= 0.8)) + 1
@@ -655,14 +628,23 @@ def plot_pareto(summaries: dict[str, pd.DataFrame]) -> None:
             (full_idx80, 80),
             xytext=(8, 8),
             textcoords="offset points",
-            fontsize=8,
+            fontsize=10,
+            fontweight="bold",
         )
         curve_ax.set_xlabel("Original country/market rank")
         curve_ax.set_ylabel("Cumulative sales share (%)")
         curve_ax.set_ylim(0, 105)
-        curve_ax.set_title("Full ranked cumulative curve")
+        curve_ax.set_xlim(1, len(summary))
+        curve_ax.set_title(
+            "Dataset A (08ecomm)" if key == "dataset_a" else "Dataset B (Global Superstore)"
+        )
+        tick_count = min(8, len(summary))
+        rank_ticks = np.unique(
+            np.linspace(1, len(summary), num=tick_count, dtype=int)
+        )
+        curve_ax.set_xticks(rank_ticks)
     fig.suptitle(
-        "Sales Concentration by Country or Market Label",
+        "Cumulative Sales Concentration by Country or Market Label",
         fontsize=16,
         fontweight="bold",
     )
@@ -684,7 +666,7 @@ def plot_comparison(comparable: dict[str, pd.DataFrame]) -> pd.DataFrame:
         .head(12)
         .sort_values("UnionSelectionScore")
     )
-    fig, ax = plt.subplots(figsize=(11, 8), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(12, 8.5), constrained_layout=True)
     y = np.arange(len(view))
     a_present = view["ComparableSalesShare_A"].notna().to_numpy()
     b_present = view["ComparableSalesShare_B"].notna().to_numpy()
@@ -759,7 +741,7 @@ def plot_matched_country_comparison(
         drop=True
     )
     plot_view = view.sort_values("MatchedSelectionScore").copy()
-    fig, ax = plt.subplots(figsize=(10, 11), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(11, 12), constrained_layout=True)
     y = np.arange(len(plot_view))
     ax.hlines(
         y,
