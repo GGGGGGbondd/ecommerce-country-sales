@@ -81,9 +81,9 @@ def configure_plot_style() -> None:
             "figure.dpi": 150,
             "savefig.dpi": 300,
             "font.family": "DejaVu Sans",
-            "font.size": 10,
-            "axes.titlesize": 14,
-            "axes.labelsize": 12,
+            "font.size": 13,
+            "axes.titlesize": 17,
+            "axes.labelsize": 16,
             "axes.titleweight": "bold",
             "axes.spines.top": False,
             "axes.spines.right": False,
@@ -92,9 +92,9 @@ def configure_plot_style() -> None:
             "grid.alpha": 0.55,
             "grid.linestyle": "--",
             "legend.frameon": False,
-            "legend.fontsize": 10,
-            "xtick.labelsize": 11,
-            "ytick.labelsize": 11,
+            "legend.fontsize": 13,
+            "xtick.labelsize": 14,
+            "ytick.labelsize": 14,
         }
     )
 
@@ -552,7 +552,7 @@ def annotate_bars(ax: Axes, bars: Any, percentages: bool = False) -> None:
             bar.get_y() + bar.get_height() / 2,
             " " + label,
             va="center",
-            fontsize=9,
+            fontsize=12,
         )
 
 
@@ -575,7 +575,7 @@ def plot_top15(summaries: dict[str, pd.DataFrame]) -> None:
         ax.set_xlim(0, view["TotalSales"].max() * 1.22)
     fig.suptitle(
         "Top 15 Countries or Market Labels by Line Sales Before Return Adjustment",
-        fontsize=16,
+        fontsize=17,
         fontweight="bold",
     )
     fig.savefig(FIG_DIR / "fig1_top15_sales.png", bbox_inches="tight")
@@ -628,7 +628,7 @@ def plot_pareto(summaries: dict[str, pd.DataFrame]) -> None:
             (full_idx80, 80),
             xytext=(8, 8),
             textcoords="offset points",
-            fontsize=10,
+            fontsize=19,
             fontweight="bold",
         )
         curve_ax.set_xlabel("Original country/market rank")
@@ -645,7 +645,7 @@ def plot_pareto(summaries: dict[str, pd.DataFrame]) -> None:
         curve_ax.set_xticks(rank_ticks)
     fig.suptitle(
         "Cumulative Sales Concentration by Country or Market Label",
-        fontsize=16,
+        fontsize=17,
         fontweight="bold",
     )
     fig.savefig(FIG_DIR / "fig2_pareto_sales.png", bbox_inches="tight")
